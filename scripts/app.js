@@ -16,7 +16,6 @@ angular.module("inventoryManagementApp", [
                     };
                     $pouchDB.save(configData).then(function (response) {
                     }, function (error) {
-                        console.log("ERROR -> " + error);
                     });
                 } else {
                     throw err;
@@ -24,7 +23,6 @@ angular.module("inventoryManagementApp", [
             }).then(function (configDoc) {
                 // on config load
             }).catch(function (err) {
-                console.log("ERROR -> " + err);
             });
 
             $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
@@ -46,19 +44,16 @@ angular.module("inventoryManagementApp", [
                         "url": "/list",
                         "templateUrl": "templates/list.html",
                         "controller": "productCtrl",
-                        controllerAs: 'productCtrl'
                     })
                     .state("item", {
                         "url": "/item/:documentId/:documentRevision",
                         "templateUrl": "templates/product.html",
                         "controller": "productCtrl",
-                        controllerAs: 'productCtrl'
                     })
                     .state("view", {
                         "url": "/view/:documentId/:documentRevision",
                         "templateUrl": "templates/product.html",
                         "controller": "productCtrl",
-                        controllerAs: 'productCtrl'
                     });
             $urlRouterProvider.otherwise("login");
         });
