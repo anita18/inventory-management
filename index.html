@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Inventory Management Service</title>
+        <link rel="stylesheet" href="./css/bootstrap.min.css">
+        <script src="./scripts/module/angular.min.js"></script>
+        <script src="./scripts/module/angular-ui-router.min.js"></script>
+        <script src="./scripts/module/pouchdb-4.0.1.min.js"></script>
+        <script src="./scripts/app.js"></script>
+        <script src="./scripts/services/service.js"></script>
+        <script src="./scripts/controller/login.controller.js"></script>
+        <script src="./scripts/controller/product.controller.js"></script>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body ng-app="inventoryManagementApp">
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Inventory Management</a>
+                </div>
+                <ul class="nav navbar-nav navbar-right" ng-if="!!isLoggedIn">
+                    <li>
+                        <button type="button" ui-sref="login" class="btn btn-default navbar-btn">Logout</button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div ui-view></div>
+    </body>
+</html>

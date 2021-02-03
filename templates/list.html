@@ -1,0 +1,48 @@
+
+<div  class="container">
+    <div ng-if="!config.isShowCreate">
+        <div  class="row">
+            <div class="pull-left">
+                <button class="btn btn-primary"  ui-sref="item">Add New Product</button>
+            </div>
+        </div>
+        <br />
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Description</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="(key, value) in products" ng-if="key !== 'config'">
+                    <td><a href="" ng-click="fetchProduct(key, value._rev)">{{value.productName}}</a></td>
+                    <td>{{value.description}}</td>
+                    <td>{{value.quantity}}</td>
+                    <td>{{value.price ? '$':''}} {{value.price}}</td>
+                    <td><a href="" ui-sref="item({documentId: key, documentRevision: value._rev})">Edit</a> | <a href=""
+                                                                                                                 ng-click="delete(value._id, value._rev)">Delete</a></td>
+                </tr>
+                <tr ng-if="!products || checkLength()">
+                    <td style="text-align: center;" colspan="5">No Product Found !</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div ng-if="config.isShowCreate">
+        <div  class="row pull-left">
+            <button class="btn btn-primary" type="button" ng-click="goToList()">Back</button>
+        </div><br /><br />
+        <div class="row">
+            <div  class="col-xs-12 well">
+                <div class="col-xs-12">Product Name : {{selectedProduct.productName}}</div>
+                <div class="col-xs-12">Description : {{selectedProduct.description}}</div>
+                <div class="col-xs-12">Quantity : {{selectedProduct.quantity}}</div>
+                <div class="col-xs-12">Price : $ {{selectedProduct.price}}</div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="container">
+    <form id="loginForm" ng-submit="doLogin(inputForm.username, inputForm.password)">
+        <div class="form-group">
+            <label for="username"><b>Username : </b></label>
+            <input type="text" class="form-control"  id="username" placeholder="Username" ng-model="inputForm.username">
+        </div>
+        <div class="form-group">
+            <label for="password"><b>Password : </b></label>
+            <input type="password" class="form-control"  id="password" placeholder="Password" ng-model="inputForm.password">
+        </div>
+        <button type="submit" class="btn btn-success" ng-click="doLogin(inputForm.username, inputForm.password)">Login</button>
+    </form>
+</div>
